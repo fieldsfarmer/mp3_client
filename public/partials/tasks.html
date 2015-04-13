@@ -1,0 +1,53 @@
+<div class = "row">
+	<div class="text-right">
+    <a class="button" href="#/add_task">Add Task</a>
+  </div>
+  <div class="text-left">
+	  <form>
+	   	Pending: &nbsp;
+	    <input type="radio" name="PCA" ng-click="ToshowPending()" checked="checked"/> 
+	    &nbsp;&nbsp;&nbsp;&nbsp;
+	    Completed: &nbsp;
+	    <input type="radio" name="PCA" ng-click="ToshowCompleted()"/>
+	    &nbsp;&nbsp;&nbsp;&nbsp;
+	    All: &nbsp;
+	    <input type="radio" name="PCA" ng-click="ToshowAll()"/>
+	  </form> 
+	</div>
+</div>	
+
+<div class = "row">
+    Sort by:
+<!--     <select ng-model="sortingM" class = "select">
+      	<option ng-repeat="sortingM in sortingMethods" value="sorting">{{sortingM}}</option>
+    </select> -->
+    <select ng-model="sortingM" ng-change="selectAndShow(sortingM)" class = "select" ng-options="o as o for o in sortingMethods"></select>
+    <form>
+ 			Ascending <input type="radio" name="order" ng-click="ascending(sortingM)" checked="checked"/> &nbsp;&nbsp;&nbsp;
+      Descending <input type="radio" name="order" ng-click="descending(sortingM)"/>
+    </form>
+</div>
+
+<div class="row text-center">
+<button class = "button tiny info" ng-click="prev()">Prev</button>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<button class = "button tiny info" ng-click="next()">Next</button>
+</div>
+
+<div class="row text-center pagination">	
+	<ul ng-repeat="task in tasksToShow.slice(n, n+10)" class="small-block-grid-12 medium-block-grid-3 large-block-grid-3">
+		<li>
+			<a href="#/tasks/{{task._id}}">{{task.name}}</a>
+		</li>
+		<li>
+			<span>Deadline: {{task.deadline}}</span>
+			<br>
+			<span>Date created: {{task.dateCreated}}</span>
+			<br>
+			Assigned to: {{task.assignedUserName}}
+		</li>
+		<li>
+			<button ng-click="deleteTask(task._id)" class="button tiny info delete">Delete</button>
+		</li>
+	</ul>
+</div>

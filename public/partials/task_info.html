@@ -1,0 +1,33 @@
+<!-- <div class="text-center">
+	<h3>Task Detail</h3>
+	<a href="#/tasks/{{task._id}}/edit"><button ng-click="editTask()" class="button tiny info">Edit Task</button></a>
+	<br>
+	<p>Name: {{task.name}}</p>	
+	<p>Description: {{task.description}}</p>
+	<p>Deadline: {{task.deadline}}</p>
+	<p>Completed: {{task.completed}}</p>
+	<p>Assigned: {{task.assignedUserName}}</p>
+</div> -->
+
+<div class="text-center">
+	<h3>Task Detail</h3>
+	<a href="#/tasks/{{task._id}}/edit"><button ng-click="editTask()" class="button tiny info">Edit Task</button></a>
+</div>
+
+<div class="row center">	
+	<ul class="small-block-grid-1 medium-block-grid-3 large-block-grid-3">
+		<li>
+			<span><b>Name:</b> {{task.name}}</span>
+		</li>
+		<li>
+			<span><b>Description:</b> {{task.description}}</span>
+		</li>
+		<li>
+			<span><b>Date created:</b> {{task.dateCreated}}</span>
+			<br>
+			<span><b>Deadline:</b> {{task.deadline}}</span>
+			<br><br>
+			<span><b>Assigned to:</b> {{task.assignedUserName}}</sapn>
+		</li>
+	</ul>
+</div>

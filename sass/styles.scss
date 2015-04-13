@@ -4,3 +4,8 @@
 @import "variables";
 @import "mixins";
 @import "base";
+
+.delete{
+	color: white !important;
+	background-color: red !important;
+}
